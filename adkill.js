@@ -32,6 +32,17 @@
         }
     }, 500);
 
+    let VPtFl =setInterval(() => {
+        let VPtFl = document.querySelector('.VPtFl');
+        if (VPtFl) {
+            clearInterval(VPtFl)
+            VPtFl.style.display = 'none';
+        }
+    }, 500);
+
+
+    VPtFl
+
     //outlook.live.com
      
 })()
