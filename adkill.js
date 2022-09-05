@@ -24,25 +24,55 @@
 (function () {
     'use strict';
 
-    let tim =setInterval(() => {
-        let OwaContainer = document.querySelector('#OwaContainer');
-        if (OwaContainer) {
-            clearInterval(tim)
-            OwaContainer.parentNode.style.display = 'none';
+
+
+
+    let tim = () => {
+        return new Promise((resolve, reject) => {
+            let timInt = setInterval(() => {
+                let OwaContainer = document.querySelector('#OwaContainer');
+                if (OwaContainer) {
+                    clearInterval(timInt)
+                    OwaContainer.parentNode.style.display = 'none';
+                    resolve()
+                }
+            }, 500);
+        })
+    }
+
+    let VPtFl = async () => {
+
+        return new Promise((resolve, reject) => {
+            let timInt = setInterval(() => {
+                let VPtFl = document.querySelector('.VPtFl');
+                if (VPtFl) {
+                    clearInterval(timInt)
+                    VPtFl.style.display = 'none';
+                    resolve()
+                }
+            }, 500);
+        })
+
+    }
+
+
+    let Init = async () => {
+        let app = document.querySelector('#app')
+        if (app) {
+            app.style.display = 'none'
         }
-    }, 500);
-
-    let VPtFl =setInterval(() => {
-        let VPtFl = document.querySelector('.VPtFl');
-        if (VPtFl) {
-            clearInterval(VPtFl)
-            VPtFl.style.display = 'none';
+        await tim()
+        await VPtFl()
+        if (app) {
+            app.style.display = 'block'
         }
-    }, 500);
 
 
-    VPtFl
 
-    //outlook.live.com
-     
+    }
+
+
+    Init()
+
+
 })()
